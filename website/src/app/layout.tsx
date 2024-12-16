@@ -33,7 +33,7 @@ const euclid = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "PyGyat - Python with rizz",
+  title: "PyUwU - Python with rizz",
   description: "A Python preprocessor that translates Python into brainrot",
 };
 

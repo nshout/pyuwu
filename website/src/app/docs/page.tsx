@@ -11,7 +11,7 @@ const sections = [
   { id: "installation", title: "Installation" },
   { id: "keyword-mappings", title: "Keyword Mappings" },
   { id: "quick-intro", title: "Quick Intro" },
-  { id: "repository-structure", title: "Repository Structure" }
+  { id: "repository-structure", title: "Repository Structure" },
 ];
 
 export default function Documentation() {
@@ -41,12 +41,13 @@ export default function Documentation() {
     const element = document.getElementById(id);
     if (element) {
       const navbarHeight = 80; // Height of navbar + some padding
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navbarHeight;
 
       window.scrollTo({
         top: offsetPosition,
-        behavior: "smooth"
+        behavior: "smooth",
       });
     }
   };
@@ -63,9 +64,11 @@ export default function Documentation() {
               className={`
                 block w-full text-left px-4 py-2 rounded-lg text-sm
                 transition-colors duration-200
-                ${activeSection === id 
-                  ? "bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400" 
-                  : "hover:bg-gray-100 dark:hover:bg-gray-800"}
+                ${
+                  activeSection === id
+                    ? "bg-purple-100 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400"
+                    : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                }
               `}
             >
               {title}
@@ -79,15 +82,25 @@ export default function Documentation() {
         <div className="container mx-auto px-4 max-w-4xl py-24">
           <div className="prose prose-lg dark:prose-invert mx-auto">
             <section id="introduction">
-              <h1 className="text-4xl font-bold mb-4">PyGyat</h1>
+              <h1 className="text-4xl font-bold mb-4">PyUwU</h1>
               <p className="text-xl mb-8">
-                Python with rizz. Be a sigma and mog your skibidi toilet opps before they crashout. This language can only be used in Ohio.
+                Python with rizz. Be a sigma and mog your skibidi toilet opps
+                before they crashout. This language can only be used in Ohio.
               </p>
               <p className="mb-8">
-                PyGyat is a Python preprosessor which translates regular Python code into brainrot by replacing certain keywords, operators, and built in functions with iPad kid vocabulary.
+                PyUwU is a Python preprosessor which translates regular Python
+                code into brainrot by replacing certain keywords, operators, and
+                built in functions with iPad kid vocabulary.
               </p>
               <p className="mb-8">
-                Implementation based on <a href="https://github.com/mathialo/bython" className="text-purple-600 hover:underline">Bython</a>.
+                Implementation based on{" "}
+                <a
+                  href="https://github.com/mathialo/bython"
+                  className="text-purple-600 hover:underline"
+                >
+                  Bython
+                </a>
+                .
               </p>
             </section>
 
@@ -96,10 +109,18 @@ export default function Documentation() {
               <h2 className="text-2xl font-bold mb-4">Key features</h2>
               <ul className="list-disc list-inside space-y-2">
                 <li>Write Python using brainrot terms instead.</li>
-                <li>Run PyGyat files using the `pygyat` command, just like Python.</li>
-                <li>Translate Python files to PyGyat and vice versa.</li>
-                <li>Real Python keywords that have defined PyGyat mappings will not be allowed.</li>
-                <li>Edit your PyGyat code with syntax highlighting with the `vscode-pygyat` extension.</li>
+                <li>
+                  Run PyUwU files using the `pyuwu` command, just like Python.
+                </li>
+                <li>Translate Python files to PyUwU and vice versa.</li>
+                <li>
+                  Real Python keywords that have defined PyUwU mappings will
+                  not be allowed.
+                </li>
+                <li>
+                  Edit your PyUwU code with syntax highlighting with the
+                  `vscode-pyuwu` extension.
+                </li>
               </ul>
             </section>
 
@@ -107,7 +128,7 @@ export default function Documentation() {
               <h2 className="text-2xl font-bold mb-4">Code example</h2>
               <Image
                 src="/code-example.png"
-                alt="PyGyat Code Example"
+                alt="PyUwU Code Example"
                 width={800}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -116,19 +137,24 @@ export default function Documentation() {
 
             <section id="installation" className="mb-12">
               <h2 className="text-2xl font-bold mb-4">Installation</h2>
-              <p>You can install PyGyat directly from PyPI using pip:</p>
+              <p>You can install PyUwU directly from PyPI using pip:</p>
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
-                  <code className="text-gray-100">$ pip3 install <span className="font-mono bg-gray-800 rounded px-1">pygyat</span></code>
+                  <code className="text-gray-100">
+                    $ pip3 install{" "}
+                    <span className="font-mono bg-gray-800 rounded px-1">
+                      pyuwu
+                    </span>
+                  </code>
                 </pre>
               </div>
 
               <p>If you want to install it from the git repository:</p>
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
-                  <code className="text-gray-100">{`$ git clone https://github.com/shamith09/<span className="font-mono bg-gray-800 rounded px-1">pygyat</span>.git`}</code>
+                  <code className="text-gray-100">{`$ git clone https://github.com/shamith09/<span className="font-mono bg-gray-800 rounded px-1">pyuwu</span>.git`}</code>
                   <br />
-                  <code className="text-gray-100">{`$ cd <span className="font-mono bg-gray-800 rounded px-1">pygyat</span>`}</code>
+                  <code className="text-gray-100">{`$ cd <span className="font-mono bg-gray-800 rounded px-1">pyuwu</span>`}</code>
                   <br />
                   <code className="text-gray-100">{`$ pip3 install .`}</code>
                 </pre>
@@ -137,14 +163,19 @@ export default function Documentation() {
               <p>To uninstall:</p>
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
-                  <code className="text-gray-100">$ pip3 uninstall <span className="font-mono bg-gray-800 rounded px-1">pygyat</span></code>
+                  <code className="text-gray-100">
+                    $ pip3 uninstall{" "}
+                    <span className="font-mono bg-gray-800 rounded px-1">
+                      pyuwu
+                    </span>
+                  </code>
                 </pre>
               </div>
 
               <p>
                 To install the VS Code extension, visit the{" "}
                 <Link
-                  href="https://marketplace.visualstudio.com/items?itemName=shamith-pasula.vscode-pygyat"
+                  href="https://marketplace.visualstudio.com/items?itemName=shamith-pasula.vscode-pyuwu"
                   className="text-purple-600 hover:underline"
                 >
                   Visual Studio Marketplace
@@ -163,7 +194,7 @@ export default function Documentation() {
                         Python Keyword/Operator
                       </th>
                       <th className="px-6 py-3 text-left">
-                        PyGyat Translation
+                        PyUwU Translation
                       </th>
                     </tr>
                   </thead>
@@ -326,28 +357,32 @@ export default function Documentation() {
             <section id="quick-intro" className="mb-12">
               <h2 className="text-2xl font-bold mb-4">Quick intro</h2>
               <p>
-                PyGyat works by first translating PyGyat files (suggested file
+                PyUwU works by first translating PyUwU files (suggested file
                 ending: .gyat) into Python-files, and then using Python to run
                 them. You therefore need a working installation of Python for
-                PyGyat to work.
+                PyUwU to work.
               </p>
 
-              <p className="mt-4">To run a PyGyat program:</p>
+              <p className="mt-4">To run a PyUwU program:</p>
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
                   <code className="text-gray-100">
-                    $ pygyat source.gyat arg1 arg2 ...
+                    $ pyuwu source.gyat arg1 arg2 ...
                   </code>
                 </pre>
               </div>
 
               <p>
-                PyGyat also includes a translator from Python to PyGyat using
-                the <span className="font-mono bg-gray-800 rounded px-1">py2gyat</span> command:
+                PyUwU also includes a translator from Python to PyUwU using
+                the{" "}
+                <span className="font-mono bg-gray-800 rounded px-1">
+                  py2uwu
+                </span>{" "}
+                command:
               </p>
               <div className="bg-gray-900 rounded-lg p-4 mb-4">
                 <pre>
-                  <code className="text-gray-100">$ py2gyat test.py</code>
+                  <code className="text-gray-100">$ py2uwu test.py</code>
                 </pre>
               </div>
             </section>
@@ -357,32 +392,45 @@ export default function Documentation() {
                 Structure of the repository
               </h2>
               <p>
-                At the moment, PyGyat is written in Python. The git repository
+                At the moment, PyUwU is written in Python. The git repository
                 is structured into 4 directories:
               </p>
               <ul className="list-disc list-inside space-y-2">
                 <li>
-                  <span className="font-mono bg-gray-800 rounded px-1">pygyat</span> contains a Python package containing the
-                  parser and other utilities used by the main script
+                  <span className="font-mono bg-gray-800 rounded px-1">
+                    pyuwu
+                  </span>{" "}
+                  contains a Python package containing the parser and other
+                  utilities used by the main script
                 </li>
                 <li>
-                  <span className="font-mono bg-gray-800 rounded px-1">etc</span> contains manual pages and other auxillary
-                  files
+                  <span className="font-mono bg-gray-800 rounded px-1">
+                    etc
+                  </span>{" "}
+                  contains manual pages and other auxillary files
                 </li>
                 <li>
-                  <span className="font-mono bg-gray-800 rounded px-1">scripts</span> contains the runnable Python scripts, ie
-                  the ones run from the shell
+                  <span className="font-mono bg-gray-800 rounded px-1">
+                    scripts
+                  </span>{" "}
+                  contains the runnable Python scripts, ie the ones run from the
+                  shell
                 </li>
                 <li>
-                  <span className="font-mono bg-gray-800 rounded px-1">testcases</span> contains a couple of sample *.gyat and
-                  *.py files intended for testing the implementation
+                  <span className="font-mono bg-gray-800 rounded px-1">
+                    testcases
+                  </span>{" "}
+                  contains a couple of sample *.gyat and *.py files intended for
+                  testing the implementation
                 </li>
                 <li>
                   <Link
-                    href="https://github.com/shamith09/vscode-pygyat"
+                    href="https://github.com/shamith09/vscode-pyuwu"
                     className="text-purple-600 hover:underline"
                   >
-                    <span className="font-mono bg-gray-800 rounded px-1">vscode-pygyat</span>
+                    <span className="font-mono bg-gray-800 rounded px-1">
+                      vscode-pyuwu
+                    </span>
                   </Link>{" "}
                   contains the Visual Studio Code extension that enables syntax
                   highlighting in VS Code.

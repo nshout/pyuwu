@@ -5,8 +5,8 @@ import argparse
 import sys
 from tokenize import tokenize, tok_name, INDENT, DEDENT, NAME
 
-from pygyat import VERSION_NUMBER, GYAT2PY_MAPPINGS
-from pygyat.logger import Logger
+from pyuwu import VERSION_NUMBER, UWU2PY_MAPPINGS
+from pyuwu.logger import Logger
 
 
 def ends_in_py(word):
@@ -136,7 +136,7 @@ def safe_substitute(value, deescaped_key, line):
             return re.sub(
                 rf'(?<!["\'#])\b{re.escape(value)}\b(?!["\'])',
                 f"{deescaped_key}_is_not_valid_python",
-                match.group(0)
+                match.group(0),
             )
 
     return re.sub(string_pattern, replace_callback, line)
@@ -144,7 +144,7 @@ def safe_substitute(value, deescaped_key, line):
 
 def reverse_parse(filename, outputname):
     """
-    Changes a Python file to a PyGyat file
+    Changes a Python file to a PyUwU file
 
     All semantically significant whitespace resulting in a change
     in indentation levels will have a matching opening or closing
@@ -187,11 +187,11 @@ def reverse_parse(filename, outputname):
             infile_str_indented += add_comment + "\n"
             continue
 
-        # disallow PyGyat in original Python file
+        # disallow PyUwU in original Python file
         # replace anything in mappings.keys() with its value but opposite
-        for value, key in GYAT2PY_MAPPINGS.items():
-            if '\\s' in value:
-                value = value.replace('\\s', 's')
+        for value, key in UWU2PY_MAPPINGS.items():
+            if "\\s" in value:
+                value = value.replace("\\s", "s")
             line = safe_substitute(value, key, line)
             line = re.sub(
                 r'(?<!["\'#])\b{}\b(?!["\'])'.format(re.escape(key)), value, line
@@ -206,22 +206,22 @@ def reverse_parse(filename, outputname):
 
 def main():
     """
-    Translate python to pygyat
+    Translate python to pyuwu
 
     Command line utility and Python module for translating python code
-    to pygyat code, adding curly braces at semantically significant
+    to pyuwu code, adding curly braces at semantically significant
     indentations.
     """
     argparser = argparse.ArgumentParser(
-        "py2gyat",
-        description="py2gyat translates python to pygyat",
+        "py2uwu",
+        description="py2uwu translates python to pyuwu",
         formatter_class=argparse.RawTextHelpFormatter,
     )
     argparser.add_argument(
         "-v",
         "--version",
         action="version",
-        version="py2gyat is a part of PyGyat v%s\nShamith Pasula 2024" % VERSION_NUMBER,
+        version="py2uwu is a part of PyUwU v%s\nShamith Pasula 2024" % VERSION_NUMBER,
     )
     argparser.add_argument(
         "-o", "--output", type=str, help="specify name of output file", nargs=1

@@ -3,14 +3,14 @@ import argparse
 import os
 import sys
 
-import pygyat.parser as parser
-from pygyat.logger import Logger
-from pygyat import VERSION_NUMBER
+import pyuwu.parser as parser
+from pyuwu.logger import Logger
+from pyuwu import VERSION_NUMBER
 
 """
-PyGyat is Python with rizz.
+PyUwU is Python with daddy issues.
 
-This is a command-line utility to translate and run pygyat files.
+This is a command-line utility to translate and run pyuwu files.
 
 Flags and arguments:
     -V, --version:      Print version number
@@ -19,42 +19,53 @@ Flags and arguments:
     -k, --keep:         Keep generated python files
     -2, --python2:      Use python2 instead of python3
     -o, --output:       Specify name of output file (if -c is present)
-    input,              PyGyat files to process
+    input,              PyUwU files to process
     args,               Arguments to script
 """
 
+
 def main():
     # Setup argument parser
-    argparser = argparse.ArgumentParser("pygyat", 
-        description="PyGyat is a python preprosessor that translates braces into indentation", 
-        formatter_class=argparse.RawTextHelpFormatter)
-    argparser.add_argument("-V", "--version", 
-        action="version", 
-        version="PyGyat v%s\nShamith Pasula 2024" % VERSION_NUMBER)
-    argparser.add_argument("-v", "--verbose", 
-        help="print progress",
-        action="store_true") 
-    argparser.add_argument("-c", "--compile", 
+    argparser = argparse.ArgumentParser(
+        "pyuwu",
+        description="PyUwU is a python preprosessor that translates braces into indentation",
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
+    argparser.add_argument(
+        "-V",
+        "--version",
+        action="version",
+        version="PyUwU v%s\nnshout 2024" % VERSION_NUMBER,
+    )
+    argparser.add_argument(
+        "-v", "--verbose", help="print progress", action="store_true"
+    )
+    argparser.add_argument(
+        "-c",
+        "--compile",
         help="translate to python only (don't run files)",
-        action="store_true")
-    argparser.add_argument("-k", "--keep",
-        help="keep generated python files",
-        action="store_true")
-    argparser.add_argument("-2", "--python2",
+        action="store_true",
+    )
+    argparser.add_argument(
+        "-k", "--keep", help="keep generated python files", action="store_true"
+    )
+    argparser.add_argument(
+        "-2",
+        "--python2",
         help="use python2 instead of python3 (default)",
-        action="store_true")
-    argparser.add_argument("-o", "--output",
-        type=str, 
-        help="specify name of output file (if -c is present)",
-        nargs=1)
-    argparser.add_argument("input",
-        type=str, 
-        help="pygyat files to process",
-        nargs=1)
-    argparser.add_argument("args",
+        action="store_true",
+    )
+    argparser.add_argument(
+        "-o",
+        "--output",
         type=str,
-        help="arguments to script",
-        nargs=argparse.REMAINDER)
+        help="specify name of output file (if -c is present)",
+        nargs=1,
+    )
+    argparser.add_argument("input", type=str, help="pyuwu files to process", nargs=1)
+    argparser.add_argument(
+        "args", type=str, help="arguments to script", nargs=argparse.REMAINDER
+    )
 
     # Parse arguments
     cmd_args = argparser.parse_args()
@@ -64,7 +75,7 @@ def main():
 
     # Check for invalid combination of flags
     if cmd_args.output is not None and cmd_args.compile is False:
-        logger.log_error("Cannot specify output when pygyat is not in compile mode")
+        logger.log_error("Cannot specify output when pyuwu is not in compile mode")
         sys.exit(1)
 
     # Where to output files
@@ -74,12 +85,13 @@ def main():
         logger.log_info("Placing files in this directory")
 
     else:
-        # Prefix with . to hide, also to avoid name conflicts. 
+        # Prefix with . to hide, also to avoid name conflicts.
         path_prefix = "python_"
-        logger.log_info("Placing files in this directory, but prefixing them with python_*")
+        logger.log_info(
+            "Placing files in this directory, but prefixing them with python_*"
+        )
 
-
-    # List of all files to translate from pygyat to python
+    # List of all files to translate from pyuwu to python
     parse_que = []
 
     # Add all files from cmd line
@@ -159,10 +171,13 @@ def main():
     try:
         logger.log_info("Running")
         logger.program_header()
-        os.system("%s %s %s" % (
-            python_command,
-            path_prefix + parser._change_file_name(filename, None),
-            " ".join(arg for arg in cmd_args.args))
+        os.system(
+            "%s %s %s"
+            % (
+                python_command,
+                path_prefix + parser._change_file_name(filename, None),
+                " ".join(arg for arg in cmd_args.args),
+            )
         )
         logger.program_footer()
 
@@ -179,11 +194,10 @@ def main():
                 os.remove(path_prefix + parser._change_file_name(filename, None))
 
     except:
-        logger.log_error("Could not delete created python files.\nSome garbage may remain in ~/.pygyattemp/")
+        logger.log_error(
+            "Could not delete created python files.\nSome garbage may remain in ~/.pygyattemp/"
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
-
-
-
