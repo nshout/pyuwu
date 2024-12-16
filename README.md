@@ -1,4 +1,4 @@
-# PyUwU
+# 🌸 PyUwU 🌸
 
 Python with daddy issues. Be a biggw uwu sigma bean and bonk youw siwwy potty opwonnents befowe dey do a wittle cwashy-washy~ Dis wuvwy wanguage can onwy be whispered in da secwet weawm of the uwu abyss~
 
